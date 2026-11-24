@@ -59,7 +59,7 @@ PRIVACY BY CONSTRUCTION
 
 No ads. No analytics SDKs. No paid third-party services in the training path.
 Your training data stays on your device unless you choose to sync it, and you
-can delete it at any time.
+control the camera and health permissions the app uses.
 
 Hypertrophy is a training tool, not a medical device. It does not diagnose,
 treat, or prevent any condition. Consult a qualified professional before
