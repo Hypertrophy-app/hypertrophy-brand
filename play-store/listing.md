@@ -12,7 +12,7 @@ Hypertrophy
 
 ## Short description
 
-Limit 80. Current: 62.
+Limit 80. Current: 61.
 
 ```
 Offline-first strength training with an on-device form coach.
