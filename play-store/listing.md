@@ -31,9 +31,10 @@ dead zone never loses a workout.
 
 TRAIN WITHOUT A CONNECTION
 
-Plan a week, build a session, log your sets. The exercise library, weekly
-planner, substitutions, and rescheduling all run on the device. When you do
-have signal, finished sessions sync in the background through an outbox.
+Sign in once, then plan a week, build a session, and log your sets. The exercise
+library, weekly planner, substitutions, and rescheduling all run on the device.
+When you do have signal, finished sessions sync to your private account in the
+background through an outbox.
 
 AN ON-DEVICE FORM COACH
 
@@ -44,10 +45,9 @@ immediately. Nothing is recorded, stored, or uploaded.
 
 TRAIN WITH YOUR SQUAD
 
-Create a squad, share a six-character invite code, and see who is training
-right now. Send a session to the squad feed, compare a leaderboard, and talk in
-group chat. Stealth mode keeps your sessions private while you stay in the
-room.
+Create a squad, share a six-character invite code, and see who is training right
+now. Talk in group chat, and turn on stealth mode to keep your activity private
+while you stay in the room.
 
 TRACK WHAT ACTUALLY CHANGED
 
@@ -57,9 +57,10 @@ Export finished sessions to Health Connect when you want them there.
 
 PRIVACY BY CONSTRUCTION
 
-No ads. No analytics SDKs. No paid third-party services in the training path.
-Your training data stays on your device unless you choose to sync it, and you
-control the camera and health permissions the app uses.
+No ads and no analytics SDKs. Plans, templates, personal records, and recaps
+stay on your phone; completed sessions sync to your private account so your
+history survives a lost device. Camera frames never leave the phone. You control
+the camera and Health Connect permissions the app uses.
 
 Hypertrophy is a training tool, not a medical device. It does not diagnose,
 treat, or prevent any condition. Consult a qualified professional before

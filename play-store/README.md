@@ -31,15 +31,24 @@ raises them.
   the client has no deletion flow. Play requires both an in-app path and a web
   URL for any app that creates accounts. This is a product change in
   `hypertrophy-android`, not a paperwork item.
+- [ ] **Clerk production instance.** Builds currently point at a development
+  instance (`sound-akita-5539.clerk.accounts.dev`) that accepts test emails.
+  Before submission, create a production instance, verify email delivery, and
+  register the Android package name plus the Play App Signing certificate
+  SHA-256. Development keys must not ship.
 - [ ] **App access.** Every screen is gated behind sign-in. Reviewers need a
   working demo account and written steps, or the app is rejected as
   inaccessible.
-- [ ] **Target API level.** This build targets API 35. Play raises the floor
-  for new apps periodically; confirm the current minimum before submission and
-  bump `targetSdk` if it has moved.
-- [ ] **Health apps declaration.** The app reads Health Connect and writes
-  session exports. Play requires the health declaration and a matching privacy
-  policy section.
+- [x] **Target API level.** This build targets API 36 (verified 2026-11-26).
+  Re-check the floor before submission; if it moves to 37, bump `targetSdk` and
+  `compileSdk` together.
+- [ ] **Health apps declaration.** The app writes session exports to Health
+  Connect and requests no read access. Play still requires the health
+  declaration and a matching privacy policy section. Health Connect also
+  requires an exported rationale activity for
+  `androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE` and a
+  `VIEW_PERMISSION_USAGE` alias on Android 14+. The manifest declares neither,
+  so the permission screen has no privacy-policy link.
 - [ ] **Play App Signing.** Enroll and upload the upload key. The release
   workflow signs with `ANDROID_KEYSTORE_BASE64`; that keystore is the upload
   key, not the app signing key.

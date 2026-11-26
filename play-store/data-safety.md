@@ -12,23 +12,29 @@ correct while the code is.
 | Is all user data encrypted in transit? | Yes, HTTPS and WSS only |
 | Do you provide a way for users to request that their data be deleted? | Not yet. See blockers. |
 | Do you have a privacy policy? | Yes, once `hypertrophy-site` is published |
-| Is data shared with third parties? | No |
+| Is data shared with third parties? | No. Clerk and Cloudflare process it on our behalf as service providers. |
+
+## Account requirement
+
+Clerk authentication is mandatory. Every screen is gated behind an active
+session, and every local row is keyed by the Clerk user id. There is no
+signed-out or local-only mode. Do not describe account data as optional.
 
 ## Collected data
 
-Everything below is optional in the sense that a lifter who never signs in and
-never joins a squad keeps all of it on the device.
+A completed session uploads automatically through the outbox while the user is
+signed in. Plans, templates, weekly schedules, personal records, and recaps stay
+on the device.
 
 | Play data type | Detail | Collected | Shared | Purpose | Optional |
 | --- | --- | --- | --- | --- | --- |
-| Personal info, Email | Account identity through Clerk | Yes | No | Account management | No, if syncing |
-| Personal info, User IDs | Clerk subject, stored as `userId` | Yes | No | Account management, app functionality | No, if syncing |
-| Personal info, Name | Display name, shown to squad members | Yes | No | App functionality | Yes |
-| Health and fitness, Fitness info | Sessions, sets, weight, reps, volume, personal records, estimated 1RM | Yes | No | App functionality | Yes |
-| Health and fitness, Health info | Health Connect reads and user-triggered session export | Yes | No | App functionality | Yes |
-| Messages, Other in-app messages | Squad chat bodies | Yes | No | App functionality | Yes |
-| Photos, Photos | Avatar image, if the user sets one | Yes | No | App functionality | Yes |
-| App activity, Other user-generated content | Workout titles, squad names, session recaps | Yes | No | App functionality | Yes |
+| Personal info, Email | Account identity through Clerk | Yes | No | Account management | No |
+| Personal info, User IDs | Clerk subject, stored as `userId` | Yes | No | Account management, app functionality | No |
+| Device or other IDs | Clerk device token, an app-instance credential | Yes | No | Account management | No |
+| Health and fitness, Fitness info | Session title, timestamps, per-set exercise id, reps, weight, range of motion, tempo, form score, total volume | Yes | No | App functionality, sync | No |
+| Messages, Other in-app messages | Squad chat bodies | Yes | No | App functionality | Yes, only when using squad chat |
+| App activity, In-app actions | Squad presence status updates | Yes | No | App functionality | Yes, only when using squads |
+| App activity, Other user-generated content | Squad names and invite codes | Yes | No | App functionality | Yes, only when using squads |
 
 ## Not collected
 
@@ -37,18 +43,22 @@ so keep them true.
 
 | Play data type | Why not |
 | --- | --- |
-| Camera and photos, live camera | Frames are read by MediaPipe in memory, closed immediately, and never persisted or transmitted. The camera is used, not collected. |
+| Health and fitness, Health info | Health Connect is write-only. Session exports are written on the device and never uploaded. |
+| Photos and videos | No photo picker and no avatar upload. Camera frames are analyzed in memory by MediaPipe and discarded. |
+| Name | The app never asks for a name. The `display_name` column holds the Clerk user id, which is already declared as a User ID. |
 | Location | Never requested. |
 | Contacts, calendar, SMS, call logs | Never requested. |
 | Financial info | No purchases, no subscriptions, no payment data. |
-| Crash logs, diagnostics, other performance data | No crash or analytics SDK is linked. Verify with `./gradlew :app:dependencies` before submitting. |
-| Device or other IDs | No advertising ID, no install ID. |
+| Crash logs, diagnostics | No crash or analytics SDK is linked. Verify with `./gradlew :app:dependencies` before submitting. |
 | Web browsing history | None. |
 
 ## Deletion
 
 Play requires an in-app deletion path and a publicly reachable web URL for any
 app that lets people create accounts. Neither exists yet.
+
+Uninstalling the app clears local Room data only. Synced sessions, the `users`
+row, squad membership, and chat state remain in D1, R2, and the Durable Object.
 
 When it is built, it must remove:
 
@@ -60,7 +70,7 @@ When it is built, it must remove:
   the privacy policy.
 - R2 objects with `customMetadata.ownerId` equal to the user.
 - The `session:<squadId>` state held by `SquadRoomDO`.
-- Local Room tables, the outbox, and the device-local account.
+- Local Room tables, the outbox, and the local Clerk state.
 
 ## Notes for the reviewer
 
