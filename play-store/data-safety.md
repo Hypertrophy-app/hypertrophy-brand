@@ -11,7 +11,7 @@ correct while the code is.
 | Does your app collect or share any of the required user data types? | Yes |
 | Is all user data encrypted in transit? | Yes, HTTPS and WSS only |
 | Do you provide a way for users to request that their data be deleted? | Not yet. See blockers. |
-| Do you have a privacy policy? | Yes, once `hypertrophy-site` is published |
+| Do you have a privacy policy? | Yes. Draft is live at `https://hypertrophy-site.pages.dev/privacy/`; custom domain pending. |
 | Is data shared with third parties? | No. Clerk and Cloudflare process it on our behalf as service providers. |
 
 ## Account requirement

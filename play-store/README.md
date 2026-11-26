@@ -24,9 +24,10 @@ product. Do not mock up a screen that the app does not render.
 These stop a submission today. They are listed in the order Play Console
 raises them.
 
-- [ ] **Privacy policy URL.** Required for every app. Blocked on
-  `hypertrophy-site` being published. The policy is drafted there; it needs a
-  legal read before it is public.
+- [ ] **Privacy policy review and canonical URL.** The draft is live at
+  `https://hypertrophy-site.pages.dev/privacy/`. It needs a legal read, the
+  draft notice removed, and the `hypertrophy.app` custom domain attached before
+  submission.
 - [ ] **Account deletion.** The Worker exposes no delete-account endpoint, and
   the client has no deletion flow. Play requires both an in-app path and a web
   URL for any app that creates accounts. This is a product change in
