@@ -21,7 +21,7 @@ Suggested set of six:
 1. Live workout with the ember rest ring
 2. Today dashboard with recovery cards
 3. Pose coach overlay mid-set
-4. Squad feed with presence pills
+4. Squad room with presence and chat
 5. Profile recovery map and heatmap
 6. PR trophy wall
 

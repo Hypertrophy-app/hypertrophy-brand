@@ -3,8 +3,8 @@
 ## Positioning
 
 Hypertrophy is offline-first strength training. The promise is that the app
-works in a basement gym with no signal, and that nothing leaves the device
-unless the lifter chooses to sync it.
+works in a basement gym with no signal, and that your training stays on your
+device until a completed session syncs to your private account.
 
 One line: **Strength training that works without a signal.**
 
