@@ -25,7 +25,7 @@ These stop a submission today. They are listed in the order Play Console
 raises them.
 
 - [ ] **Privacy policy review and canonical URL.** The draft is live at
-  `https://hypertrophy-site.pages.dev/privacy/`. It needs a legal read, the
+  `https://hypertrophy-app.pages.dev/privacy/`. It needs a legal read, the
   draft notice removed, and the `hypertrophy.app` custom domain attached before
   submission.
 - [ ] **Account deletion.** The Worker exposes no delete-account endpoint, and
